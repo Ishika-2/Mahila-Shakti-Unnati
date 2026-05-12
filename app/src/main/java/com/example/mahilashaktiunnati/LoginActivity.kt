@@ -24,41 +24,11 @@ class LoginActivity : AppCompatActivity() {
         val loginBtn = findViewById<Button>(R.id.loginBtn)
         val createAccountBtn = findViewById<TextView>(R.id.createAccountBtn)
 
-        // CREATE ACCOUNT
+        // OPEN SIGNUP PAGE
         createAccountBtn.setOnClickListener {
-
-            val email = emailEt.text.toString().trim()
-            val password = passwordEt.text.toString().trim()
-
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(
-                    this,
-                    "Enter email & password first",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-
-                    if (task.isSuccessful) {
-
-                        Toast.makeText(
-                            this,
-                            "Account Created Successfully",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                    } else {
-
-                        Toast.makeText(
-                            this,
-                            task.exception?.message,
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
+            startActivity(
+                Intent(this, SignupActivity::class.java)
+            )
         }
 
         // LOGIN
@@ -91,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
 
                         Toast.makeText(
                             this,
-                            task.exception?.message,
+                            "Invalid email or password",
                             Toast.LENGTH_LONG
                         ).show()
                     }
