@@ -141,12 +141,19 @@ The project uses Firebase Authentication for:
 * Analytics dashboard
 * PDF export improvements
 * Multi-language support
+* Separate signup screen for new users
+* Improved login flow with user-friendly validation messages
 
 # App Screenshots
 
 ## Authentication
 
-<img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/02490f47-6e6e-4529-889a-784f640ce5b5" />
+### Login Screen
+<img width="945" height="2048" alt="Login Screen" src="YOUR_LOGIN_IMAGE_LINK" />
+
+### Signup Screen
+<img width="945" height="2048" alt="Signup Screen" src="YOUR_SIGNUP_IMAGE_LINK" />
+
 
 ## Dashboard
 
