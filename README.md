@@ -151,6 +151,7 @@ The project uses Firebase Authentication for:
 ### Login Screen
 <img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/79c45014-9232-4fdb-aa1d-734040225828" />
 
+
 ### Signup Screen
 <img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/688ea576-d6d4-4f17-aaf1-72ba6d703b6c" />
 
