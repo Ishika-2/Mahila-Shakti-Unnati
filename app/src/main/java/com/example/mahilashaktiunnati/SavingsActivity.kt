@@ -2,6 +2,7 @@ package com.example.mahilashaktiunnati
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -54,26 +55,34 @@ class SavingsActivity : AppCompatActivity() {
             finish()
         }
 
+        fun updateStatusToggleUI() {
+            if (selectedStatus == "Paid") {
+                paidToggle.text = "Paid"
+                paidToggle.setTextColor(Color.WHITE)
+                paidToggle.background = getToggleBackground(primaryColor)
+
+                pendingToggle.text = "Pending"
+                pendingToggle.setTextColor(Color.parseColor(primaryColor))
+                pendingToggle.background = getToggleBackground("#00000000")
+            } else {
+                pendingToggle.text = "Pending"
+                pendingToggle.setTextColor(Color.WHITE)
+                pendingToggle.background = getToggleBackground(primaryColor)
+
+                paidToggle.text = "Paid"
+                paidToggle.setTextColor(Color.parseColor(primaryColor))
+                paidToggle.background = getToggleBackground("#00000000")
+            }
+        }
+
         fun selectPaid() {
             selectedStatus = "Paid"
-
-            paidToggle.setTextColor(Color.WHITE)
-            paidToggle.backgroundTintList =
-                ColorStateList.valueOf(Color.parseColor(primaryColor))
-
-            pendingToggle.setTextColor(Color.parseColor(primaryColor))
-            pendingToggle.setBackgroundColor(Color.TRANSPARENT)
+            updateStatusToggleUI()
         }
 
         fun selectPending() {
             selectedStatus = "Pending"
-
-            pendingToggle.setTextColor(Color.WHITE)
-            pendingToggle.backgroundTintList =
-                ColorStateList.valueOf(Color.parseColor(primaryColor))
-
-            paidToggle.setTextColor(Color.parseColor(primaryColor))
-            paidToggle.setBackgroundColor(Color.TRANSPARENT)
+            updateStatusToggleUI()
         }
 
         selectPaid()
@@ -173,6 +182,13 @@ class SavingsActivity : AppCompatActivity() {
         }
     }
 
+    private fun getToggleBackground(color: String): GradientDrawable {
+        val drawable = GradientDrawable()
+        drawable.cornerRadius = 60f
+        drawable.setColor(Color.parseColor(color))
+        return drawable
+    }
+
     private fun applySavedTheme() {
 
         val prefs = getSharedPreferences("app_settings", MODE_PRIVATE)
@@ -210,9 +226,9 @@ class SavingsActivity : AppCompatActivity() {
         recordPaymentBtn.backgroundTintList =
             ColorStateList.valueOf(Color.parseColor(primaryColor))
 
-        paidToggle.backgroundTintList =
-            ColorStateList.valueOf(Color.parseColor(primaryColor))
-
+        paidToggle.background = getToggleBackground(primaryColor)
+        pendingToggle.background = getToggleBackground("#00000000")
+        paidToggle.setTextColor(Color.WHITE)
         pendingToggle.setTextColor(Color.parseColor(primaryColor))
     }
 
