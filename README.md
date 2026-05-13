@@ -161,6 +161,7 @@ The project uses Firebase Authentication for:
 
 <img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/49e4537f-ff61-4c97-9356-8e3e8750ce75" />
 
+
 <img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/e32f80f8-8abe-490d-8787-6c764e623d03" />
 
 
