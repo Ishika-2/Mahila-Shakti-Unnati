@@ -165,8 +165,7 @@ The project uses Firebase Authentication for:
 
 ## Member Management
 
-<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/329a6169-0395-41fa-aaaa-0c05b17e2512" />
-
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/62655b84-39ec-4231-aaca-f0ad8e06d6fe" />
 
 
 <img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/540eaede-b87a-4f85-9729-0af8b7c1e14a" />
@@ -179,8 +178,7 @@ The project uses Firebase Authentication for:
 
 ## Loan Management
 
-<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/38434c30-e2d1-4486-9b51-20f7d210a73d" />
-
+<img width="1080" height="2340" alt="image" src="https://github.com/user-attachments/assets/db6bc6b3-1ac2-4c1c-835e-ef45ea9e9d6b" />
 
 
 <img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/4af71ef6-954c-482d-bbc0-0b2ebb709ad9" />
