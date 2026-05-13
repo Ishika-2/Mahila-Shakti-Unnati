@@ -23,11 +23,11 @@
         android:text="Members"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/dark_purple" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:layout_marginTop="18dp">
@@ -41,19 +41,39 @@
             android:textSize="14sp"
             android:singleLine="true"
             android:padding="12dp"
+            android:textColor="@color/dark_purple"
+            android:textColorHint="@color/hint_readable"
             android:background="#FFFFFF" />
 
-        <TextView
-            android:id="@+id/addMemberSmallBtn"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="10dp"
+        <!-- Add Member Section -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:gravity="center"
-            android:text="+"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/btn_green_bg" />
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/addMemberSmallBtn"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_green_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Member"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_purple"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <TextView
@@ -61,7 +81,7 @@
         android:layout_height="wrap_content"
         android:text="Tap member for contribution history. Long press to delete."
         android:textSize="14sp"
-        android:textColor="#6D5A7A"
+        android:textColor="@color/dark_purple"
         android:layout_marginTop="10dp" />
 
     <ListView

@@ -12,7 +12,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -143,14 +142,14 @@ class SavingsActivity : AppCompatActivity() {
         recordPaymentBtn.setOnClickListener {
 
             if (memberList.isEmpty()) {
-                Toast.makeText(this, "Add a member first", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Add a member first")
                 return@setOnClickListener
             }
 
             val selectedIndex = memberSpinner.selectedItemPosition
 
             if (selectedIndex == 0) {
-                Toast.makeText(this, "Please select a member", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Please select a member")
                 return@setOnClickListener
             }
 
@@ -169,7 +168,7 @@ class SavingsActivity : AppCompatActivity() {
                 status = selectedStatus
             )
 
-            Toast.makeText(this, "Savings recorded", Toast.LENGTH_SHORT).show()
+            ToastHelper.show(this, "Savings recorded")
             finish()
         }
     }

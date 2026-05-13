@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
@@ -238,7 +237,7 @@ class ReportActivity : AppCompatActivity() {
         pdfDocument.writeTo(FileOutputStream(file))
         pdfDocument.close()
 
-        Toast.makeText(this, "PDF created", Toast.LENGTH_SHORT).show()
+        ToastHelper.show(this, "PDF created")
 
         return file
     }

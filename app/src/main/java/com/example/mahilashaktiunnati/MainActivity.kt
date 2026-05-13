@@ -13,7 +13,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -76,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         exportReportBtn = findViewById(R.id.exportReportBtn)
         chatbotBtn = findViewById(R.id.chatbotBtn)
 
-        // Hide old dashboard buttons
         addTestMemberBtn.visibility = android.view.View.GONE
         recordSavingsBtn.visibility = android.view.View.GONE
         addLoanBtn.visibility = android.view.View.GONE
@@ -139,11 +137,7 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
 
-            Toast.makeText(
-                this,
-                "Logged out successfully",
-                Toast.LENGTH_SHORT
-            ).show()
+            ToastHelper.show(this, "Logged out successfully")
         }
 
         observeDashboardData()
@@ -195,7 +189,6 @@ class MainActivity : AppCompatActivity() {
         exportReportBtn.setOnClickListener {
             startActivity(Intent(this, ReportActivity::class.java))
         }
-
 
         chatbotBtn.setOnClickListener {
             startActivity(Intent(this, ChatbotActivity::class.java))
@@ -260,7 +253,6 @@ class MainActivity : AppCompatActivity() {
         applyDrawerTheme(primaryColor, accentColor)
     }
 
-
     private fun applyDrawerTheme(primaryColor: String, accentColor: String) {
         val dashboard = findViewById<LinearLayout>(R.id.menuDashboard)
         dashboard.backgroundTintList =
@@ -272,7 +264,6 @@ class MainActivity : AppCompatActivity() {
         setDrawerItemColor(R.id.menuRepayment, accentColor)
         setDrawerItemColor(R.id.menuExport, accentColor)
         setDrawerItemColor(R.id.menuSettings, accentColor)
-
 
         findViewById<TextView>(R.id.drawerGroupNameText)
             .setTextColor(Color.parseColor(accentColor))

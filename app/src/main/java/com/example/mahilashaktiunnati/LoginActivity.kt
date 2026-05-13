@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -38,11 +37,7 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordEt.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(
-                    this,
-                    "Enter email & password first",
-                    Toast.LENGTH_SHORT
-                ).show()
+                ToastHelper.show(this, "Enter email & password first")
                 return@setOnClickListener
             }
 
@@ -59,11 +54,7 @@ class LoginActivity : AppCompatActivity() {
 
                     } else {
 
-                        Toast.makeText(
-                            this,
-                            "Invalid email or password",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        ToastHelper.show(this, "Invalid email or password")
                     }
                 }
         }

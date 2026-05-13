@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:textColor="#6D5A7A"
+            android:textColor="@color/dark_purple"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginBottom="34dp" />
@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Profile Settings"
-                        android:textColor="#6D5A7A"
+                        android:textColor="@color/dark_purple"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
                         android:id="@+id/groupNameSubTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leader Information"
+                        android:text="Group Information"
                         android:textColor="#9BA0A8"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -130,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Language"
-                        android:textColor="#6D5A7A"
+                        android:textColor="@color/dark_purple"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -181,7 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Theme Selector"
-                        android:textColor="#6D5A7A"
+                        android:textColor="@color/dark_purple"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -189,7 +189,7 @@
                         android:id="@+id/themeSubTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Classic Green &amp; Purple"
+                        android:text="Purple"
                         android:textColor="#9BA0A8"
                         android:textSize="12sp"
                         android:textStyle="bold" />

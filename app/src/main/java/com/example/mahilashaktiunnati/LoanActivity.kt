@@ -125,12 +125,12 @@ class LoanActivity : AppCompatActivity() {
 
         applyLoanBtn.setOnClickListener {
             if (memberList.isEmpty()) {
-                Toast.makeText(this, "Add a member first", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Add a member first")
                 return@setOnClickListener
             }
 
             if (borrowerSpinner.selectedItemPosition == 0) {
-                Toast.makeText(this, "Please choose a borrower", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Please choose a borrower")
                 return@setOnClickListener
             }
 
@@ -147,7 +147,7 @@ class LoanActivity : AppCompatActivity() {
 
             if (principal > eligibleAmount) {
                 principalEt.error = "Max allowed: ₹${df.format(eligibleAmount)}"
-                Toast.makeText(this, "Loan exceeds eligibility!", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Loan exceeds eligibility!")
                 return@setOnClickListener
             }
 
@@ -170,7 +170,7 @@ class LoanActivity : AppCompatActivity() {
                 durationMonths = months
             ) { success, message ->
 
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                ToastHelper.show(this, message)
 
                 if (success) {
                     finish()

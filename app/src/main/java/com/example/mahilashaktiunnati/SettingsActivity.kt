@@ -8,12 +8,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mahilashaktiunnati.R
 import android.content.Intent
-import android.widget.Button
-
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingsActivity : AppCompatActivity() {
@@ -30,8 +28,6 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-
-
 
         prefs = getSharedPreferences("app_settings", MODE_PRIVATE)
 
@@ -73,11 +69,7 @@ class SettingsActivity : AppCompatActivity() {
 
                     startActivity(intent)
 
-                    Toast.makeText(
-                        this,
-                        "Logged out successfully",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    ToastHelper.show(this, "Logged out successfully")
                 }
 
                 .setNegativeButton("Cancel", null)
@@ -87,17 +79,16 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun loadSettings() {
         val groupName = prefs.getString("group_name", "Mahila Shakti Unnati")
-        val leaderName = prefs.getString("leader_name", "Leader Information")
         val language = prefs.getString("language", "English (India)")
-        val theme = prefs.getString("theme", "Classic Green & Purple")
+        val theme = prefs.getString("theme", "Purple")
 
-        groupNameSubTv.text = "$groupName • $leaderName"
+        groupNameSubTv.text = groupName
         languageSubTv.text = language
         themeSubTv.text = theme
     }
 
     private fun applySavedTheme() {
-        val theme = prefs.getString("theme", "Classic Green & Purple")
+        val theme = prefs.getString("theme", "Purple")
 
         primaryColor =
             if (theme == "Purple")
@@ -149,13 +140,6 @@ class SettingsActivity : AppCompatActivity() {
         groupEt.setPadding(18, 18, 18, 18)
         groupEt.setBackgroundResource(R.drawable.bg_input)
 
-        val leaderEt = EditText(this)
-        leaderEt.hint = "Enter Leader Name"
-        leaderEt.setText(prefs.getString("leader_name", ""))
-        leaderEt.textSize = 16f
-        leaderEt.setPadding(18, 18, 18, 18)
-        leaderEt.setBackgroundResource(R.drawable.bg_input)
-
         val params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
@@ -163,19 +147,17 @@ class SettingsActivity : AppCompatActivity() {
         params.setMargins(0, 22, 0, 0)
 
         layout.addView(groupEt, params)
-        layout.addView(leaderEt, params)
 
         val dialog = AlertDialog.Builder(this)
             .setView(layout)
             .setPositiveButton("Save") { _, _ ->
                 prefs.edit()
                     .putString("group_name", groupEt.text.toString())
-                    .putString("leader_name", leaderEt.text.toString())
                     .apply()
 
                 loadSettings()
                 applySavedTheme()
-                Toast.makeText(this, "Profile saved", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Profile saved")
             }
             .setNegativeButton("Cancel", null)
             .create()
@@ -229,16 +211,13 @@ class SettingsActivity : AppCompatActivity() {
         dialog.show()
     }
 
-
-
     private fun showThemeDialog() {
         val themes = arrayOf(
-            "Classic Green & Purple",
             "Green",
             "Purple"
         )
 
-        val savedTheme = prefs.getString("theme", "Classic Green & Purple")
+        val savedTheme = prefs.getString("theme", "Purple")
 
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.VERTICAL
@@ -303,7 +282,7 @@ class SettingsActivity : AppCompatActivity() {
                     loadSettings()
                     applySavedTheme()
 
-                    Toast.makeText(this, "Theme saved", Toast.LENGTH_SHORT).show()
+                    ToastHelper.show(this, "Theme saved")
                     dialog.dismiss()
                 }
             }

@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.mahilashaktiunnati.viewmodel.MainViewModel
@@ -51,7 +50,7 @@ class AddMemberActivity : AppCompatActivity() {
             val phone = phoneEt.text.toString().trim()
 
             if (name.isEmpty() || uniqueId.isEmpty() || phone.isEmpty()) {
-                Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Fill all fields")
                 return@setOnClickListener
             }
 
@@ -62,7 +61,7 @@ class AddMemberActivity : AppCompatActivity() {
                 selectedImageUri?.toString() ?: ""
             )
 
-            Toast.makeText(this, "Member Added", Toast.LENGTH_SHORT).show()
+            ToastHelper.show(this, "Member Added")
             finish()
         }
     }

@@ -109,11 +109,7 @@ class RepaymentActivity : AppCompatActivity() {
 
             if (activeLoans.isEmpty()) {
 
-                Toast.makeText(
-                    this,
-                    "No active loan available",
-                    Toast.LENGTH_SHORT
-                ).show()
+                ToastHelper.show(this, "No active loan available")
 
                 return@setOnClickListener
             }
@@ -126,11 +122,7 @@ class RepaymentActivity : AppCompatActivity() {
 
             if (amount == null || amount <= 0) {
 
-                Toast.makeText(
-                    this,
-                    "Enter valid repayment amount",
-                    Toast.LENGTH_SHORT
-                ).show()
+                ToastHelper.show(this, "Enter valid repayment amount")
 
                 return@setOnClickListener
             }
@@ -143,11 +135,7 @@ class RepaymentActivity : AppCompatActivity() {
 
             if (amount > roundedOutstanding + 0.01) {
 
-                Toast.makeText(
-                    this,
-                    "Amount is greater than outstanding balance",
-                    Toast.LENGTH_SHORT
-                ).show()
+                ToastHelper.show(this, "Amount is greater than outstanding balance")
 
                 return@setOnClickListener
             }
@@ -157,11 +145,7 @@ class RepaymentActivity : AppCompatActivity() {
                 amount
             )
 
-            Toast.makeText(
-                this,
-                "Repayment recorded",
-                Toast.LENGTH_SHORT
-            ).show()
+            ToastHelper.show(this, "Repayment recorded")
 
             finish()
         }

@@ -2,22 +2,23 @@ package com.example.mahilashaktiunnati
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.mahilashaktiunnati.data.entity.Member
 import com.example.mahilashaktiunnati.viewmodel.MainViewModel
-
-import android.content.res.ColorStateList
-import android.graphics.Color
 
 class MembersActivity : AppCompatActivity() {
 
@@ -79,7 +80,7 @@ class MembersActivity : AppCompatActivity() {
                     .setMessage("Delete ${member.name}?")
                     .setPositiveButton("Delete") { _, _ ->
                         viewModel.deleteMember(member)
-                        Toast.makeText(this, "Member deleted", Toast.LENGTH_SHORT).show()
+                        ToastHelper.show(this, "Member deleted")
                     }
                     .setNegativeButton("Cancel", null)
                     .show()
@@ -107,9 +108,9 @@ class MembersActivity : AppCompatActivity() {
         ) {
             override fun getView(
                 position: Int,
-                convertView: android.view.View?,
+                convertView: View?,
                 parent: android.view.ViewGroup
-            ): android.view.View {
+            ): View {
                 val view = convertView ?: layoutInflater.inflate(
                     R.layout.item_member_card,
                     parent,
@@ -119,12 +120,22 @@ class MembersActivity : AppCompatActivity() {
                 val member = filteredList[position]
 
                 val initialText = view.findViewById<TextView>(R.id.memberInitialText)
+                val photoIv = view.findViewById<ImageView>(R.id.memberPhotoIv)
                 val nameText = view.findViewById<TextView>(R.id.memberNameText)
                 val phoneText = view.findViewById<TextView>(R.id.memberPhoneText)
 
                 initialText.text = member.name.firstOrNull()?.uppercase() ?: "?"
                 nameText.text = member.name
                 phoneText.text = "Phone: ${member.phone}"
+
+                if (member.photoUri.isNotEmpty()) {
+                    photoIv.visibility = View.VISIBLE
+                    initialText.visibility = View.GONE
+                    photoIv.setImageURI(Uri.parse(member.photoUri))
+                } else {
+                    photoIv.visibility = View.GONE
+                    initialText.visibility = View.VISIBLE
+                }
 
                 val prefs = getSharedPreferences("app_settings", MODE_PRIVATE)
                 val theme = prefs.getString("theme", "Default Green & Purple")

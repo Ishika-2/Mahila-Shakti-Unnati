@@ -24,39 +24,50 @@ class SignupActivity : AppCompatActivity() {
         val loginText = findViewById<TextView>(R.id.loginText)
 
         createAccountBtn.setOnClickListener {
+
             val name = nameEt.text.toString().trim()
             val email = emailEt.text.toString().trim()
             val password = passwordEt.text.toString().trim()
             val confirmPassword = confirmPasswordEt.text.toString().trim()
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(this, "Please fill all details", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Please fill all details")
                 return@setOnClickListener
             }
 
             if (password.length < 6) {
-                Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Password must be at least 6 characters")
                 return@setOnClickListener
             }
 
             if (password != confirmPassword) {
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+                ToastHelper.show(this, "Passwords do not match")
                 return@setOnClickListener
             }
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Account created successfully. Please login.", Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this, LoginActivity::class.java))
+                    ToastHelper.show(this, "Account created successfully. Please login.")
+
+                    startActivity(
+                        Intent(this, LoginActivity::class.java)
+                    )
+
                     finish()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, it.message ?: "Account creation failed", Toast.LENGTH_LONG).show()
+                    ToastHelper.show(
+                        this,
+                        it.message ?: "Account creation failed"
+                    )
                 }
         }
 
         loginText.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(
+                Intent(this, LoginActivity::class.java)
+            )
+
             finish()
         }
     }
