@@ -62,7 +62,8 @@ Mahila Shakti Unnati provides a digital solution to simplify SHG financial manag
 * Modern UI design
 * Offline Room Database support
 * Real-time UI updates using LiveData
-
+* Separate signup screen for new users
+* Improved login flow with user-friendly validation messages
 
 
 # Tech Stack
@@ -142,11 +143,18 @@ The project uses Firebase Authentication for:
 * PDF export improvements
 * Multi-language support
 
+
 # App Screenshots
 
 ## Authentication
 
-<img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/02490f47-6e6e-4529-889a-784f640ce5b5" />
+### Login Screen
+<img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/79c45014-9232-4fdb-aa1d-734040225828" />
+
+### Signup Screen
+<img width="945" height="2048" alt="image" src="https://github.com/user-attachments/assets/688ea576-d6d4-4f17-aaf1-72ba6d703b6c" />
+
+
 
 ## Dashboard
 
