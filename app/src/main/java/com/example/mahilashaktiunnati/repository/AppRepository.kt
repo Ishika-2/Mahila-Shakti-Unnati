@@ -28,7 +28,7 @@ class AppRepository(private val dao: AppDao) {
         val existingLoan = dao.getActiveLoan(loan.memberId)
 
         if (existingLoan != null) {
-            throw Exception("Existing Loan Detected")
+            throw Exception("This member already has an unpaid loan")
         }
 
         dao.insertLoan(loan)
@@ -64,13 +64,10 @@ class AppRepository(private val dao: AppDao) {
 
     fun getAllSavingsWithMember() = dao.getAllSavingsWithMember()
 
-
     fun getActiveLoansWithMember(): LiveData<List<LoanWithMember>> {
         return dao.getActiveLoansWithMember()
     }
 
     fun getMemberByIdSync(memberId: Int) =
         dao.getMemberByIdSync(memberId)
-
-
 }
